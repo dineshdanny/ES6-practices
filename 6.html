@@ -11,12 +11,13 @@
 <script>
     function exhcangeRate(from,to,amount){
 		axios.get(`https://api.fixer.io/latest?base=${from}`)
-		  .then(function (response) {
-			console.log(response);
+		  .then((response)=> {
+			let toPrice=response.data.rates[to];
+			return toPrice*amount;
 		  })
 		  .catch(function (error) {
 			console.log(error);
-		  });
+		  });		  
 	}
 	exhcangeRate('USD','INR',100);
 	
