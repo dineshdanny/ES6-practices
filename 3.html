@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TableGenerator</title>
+	<style>
+	table, th, td {
+	   border: 1px solid black;
+	}
+	</style>
+</head>
+<body>
+<div id="fruitsTable"></div>
+</body>
+<script>
+    class TableGenerator
+	{
+		constructor(title,data){
+			this.title=title;
+			this.data=data;
+		}
+		
+		render(){
+			let htmlOutput="<table><tr><td>title</td><td>price</td><td>qty</td></tr>";
+			for(data of this.data){
+				htmlOutput+=`<tr><td>${data.title}</td><td>${data.price}</td><td>${data.qty}</td></tr>`;
+			}
+			htmlOutput+="</table>";
+			return htmlOutput;
+		}
+	}
+
+	let data = [
+		{title: 'apple', price: 2, qty: 30},
+		{title: 'banana', price: 1, qty: 30},
+		{title: 'chikoo', price: 1, qty: 30}
+	];
+	let title = "fruits";
+	let tableObj=new TableGenerator(title,data);
+	document.getElementById("fruitsTable").innerHTML = tableObj.render();
+
+	
+</script>
+</html>
