@@ -19,7 +19,10 @@
 			console.log(error);
 		  });		  
 	}
-	exhcangeRate('USD','INR',100);
+	const rate = exchangeRate('USD', 'INR', 100).next();
+    rate.value.then((data) => {
+        console.log('CurrencyValue:', data);
+    });
 	
 </script>
 </html>
